@@ -16,6 +16,7 @@ def opts
     opt :client_id, 'server client id', type: :string, default: ENV['SIMPLECI_KEY'], short: '-u'
     opt :secret, 'server client secret', type: :string, default: ENV['SIMPLECI_SECRET'], short: '-p'
     opt :user, 'user to represent', type: :string, default: 'me', short: '-a'
+    opt :jobs_definition_file, 'job for files', type: :string, default: 'builds.yml', short: '-j'
   end
 end
 
@@ -70,9 +71,6 @@ def main(cmd)
         Trollop::educate
       end
 
-    when 'secrets'
-      req_user(:get, 'secrets')
-
     when 'provision-secrets'
       req_user(:get, 'secrets')['secrets'].each do |secret|
         puts "export #{secret['key']}=#{secret['value']}"
@@ -108,6 +106,15 @@ end
 
 if ARGV.empty?
   opts
+
+  puts 'commands...'
+  puts 'apply'
+  puts 'add-secret'
+  puts 'provision-secrets'
+  puts 'secrets'
+  puts 'users'
+  puts 'me'
+
   Trollop::educate
 end
 main(ARGV[0])
