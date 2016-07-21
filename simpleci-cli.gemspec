@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "simpleci-cli"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["Colin Walker"]
   spec.email         = ["colin@musefind.com"]
 
