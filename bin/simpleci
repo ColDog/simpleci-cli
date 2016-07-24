@@ -12,7 +12,7 @@ require 'yaml'
 
 def opts
   @opts ||= Trollop::options do
-    opt :server, 'server endpoint', type: :string, default: 'http://localhost:3000', short: '-s'
+    opt :server, 'server endpoint', type: :string, default: ENV['SIMPLECI_API'], short: '-s'
     opt :client_id, 'server client id', type: :string, default: ENV['SIMPLECI_KEY'], short: '-u'
     opt :secret, 'server client secret', type: :string, default: ENV['SIMPLECI_SECRET'], short: '-p'
     opt :user, 'user to represent', type: :string, default: 'me', short: '-a'
